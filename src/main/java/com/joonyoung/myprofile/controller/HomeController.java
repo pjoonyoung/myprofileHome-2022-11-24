@@ -30,4 +30,14 @@ public class HomeController {
 	public String login() {
 		return "login";
 	}
+	
+	@RequestMapping("/join")
+	public String join() {
+		return "join";
+	}
+	
+	@RequestMapping("/question")
+	public String question() {
+		return "question";
+	}
 }

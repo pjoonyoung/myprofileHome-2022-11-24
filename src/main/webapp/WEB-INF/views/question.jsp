@@ -30,19 +30,27 @@
 						<td class="content">
 							<center>
 							<table border="0" cellspacing="0" cellpadding="10">
-								<form action="loginOk" method="post">
+								<form action="questionOk" method="post">
 									<tr>
 										<td><span class="content_text01">MEMBER ID</span></td>
-										<td><input class="input_type01" type="text" name="mid"></td>
+										<td><input class="input_type01" type="text" name="qid"></td>
 									</tr>
 									<tr>
-										<td><span class="content_text01">PASSWORD</span></td>
-										<td><input class="input_type01" type="password" name="mpw"></td>
+										<td><span class="content_text01">NAME</span></td>
+										<td><input class="input_type01" type="text" name="qname"></td>
+									</tr>
+									<tr>
+										<td><span class="content_text01">QUESTION</span></td>
+										<td><textarea class="textarea_text01" rows="5" cols="30" name="qcontent"></textarea></td>
+									</tr>
+									<tr>
+										<td><span class="content_text01">E-MAIL</span></td>
+										<td><input class="input_type01" type="text" name="qemail"></td>
 									</tr>
 									<tr>
 										<td colspan="2">
-											<input class="button_type01" type="submit" value="로그인">&nbsp;&nbsp;
-											<input class="button_type01" type="button" value="회원가입" onclick="script:window.location='join'">
+											<input class="button_type01" type="submit" value="글쓰기">&nbsp;&nbsp;
+											<input class="button_type01" type="button" value="글목록" onclick="script:window.location='list'">
 										</td>
 									</tr>
 								</form>

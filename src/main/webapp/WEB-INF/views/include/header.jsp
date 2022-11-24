@@ -13,9 +13,9 @@
 			<td width="65%" class="menu01">&nbsp;</td>
 			<td width="5%" class="menu01"><a href="index">HOME</a></td>
 			<td width="5%" class="menu01"><a href="login">LOGIN</a></td>
-			<td width="5%" class="menu01">JOIN</td>
+			<td width="5%" class="menu01"><a href="join">JOIN</a></td>
 			<td width="6%" class="menu01"><a href="profile">PROFILE</a></td>
-			<td width="7%" class="menu01">QUESTION</td>
+			<td width="7%" class="menu01"><a href="question">QUESTION</a></td>
 			<td width="6%" class="menu01"><a href="contact">CONTACT</a></td>
 			<td width="2%">&nbsp;</td>
 		</tr>

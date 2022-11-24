@@ -17,7 +17,7 @@ span.content_text01 {
 	font-family: malgun;
 	font-size: 20px;
 	font-weight: bold;
-	color: #303030;
+	color: #8C0000;
 }
 
 input.input_type01 {
@@ -40,6 +40,16 @@ input.button_type01 {
 	font-size: 20px;
 	font-weight: bold;
 	color: #FFFFFF;
+}
+
+textarea.textarea_text01 {
+	background-color: #FFFFFF;
+	border: 1px solid #FED39F;
+	width: 200px;
+	padding: 5px;
+	font-family: Arial;
+	font-size: 20px;
+	color: #2A2A2A;
 }
 
 

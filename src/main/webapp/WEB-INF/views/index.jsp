@@ -25,7 +25,7 @@
 		<tr>
 			<td>
 				<center>
-				<table width="90%" border="0" cellspacing="0" cellpadding="10">
+				<table width="80%" border="0" cellspacing="0" cellpadding="10">
 					<tr>
 						<td class="skillbox"><span class="title03">J</span><span class="title04">AVA</span></td>
 						<td rowspan="6" class="picbox">
