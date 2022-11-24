@@ -25,7 +25,7 @@
 		<tr>
 			<td>
 				<center>
-				<table width="80%" border="0" cellspacing="0" cellpadding="10">
+				<table width="90%" border="0" cellspacing="0" cellpadding="10">
 					<tr class="contentbox">
 						<td class="content">
 							안녕하세요 Web Application 백엔드 개발자 박준영입니다.<br>

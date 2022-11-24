@@ -11,13 +11,23 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping("profile")
+	@RequestMapping("/index")
+	public String index() {
+		return "index";
+	}
+	
+	@RequestMapping("/profile")
 	public String profile() {
 		return "profile";
 	}
 	
-	@RequestMapping("contact")
+	@RequestMapping("/contact")
 	public String contact() {
 		return "contact";
+	}
+	
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
 	}
 }

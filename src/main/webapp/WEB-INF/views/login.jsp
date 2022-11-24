@@ -28,9 +28,26 @@
 				<table width="90%" border="0" cellspacing="0" cellpadding="10">
 					<tr class="contentbox">
 						<td class="content">
-							안녕하세요 Web Application 백엔드 개발자 박준영입니다.<br>
-							보시고 계신 페이지는 Spring Boot Framework으로 개발되었습니다.<br>
-							웹 어플리케이션 개발 관련하여 궁금하신 점은 jypjoon@gmail.com으로 연락부탁드립니다.
+							<center>
+							<table border="0" cellspacing="0" cellpadding="10">
+								<form action="joinOk" method="post">
+									<tr>
+										<td><span class="content_text01">MEMBER ID</span></td>
+										<td><input class="input_type01" type="text" name="mid"></td>
+									</tr>
+									<tr>
+										<td><span class="content_text01">PASSWORD</span></td>
+										<td><input class="input_type01" type="password" name="mpw"></td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<input class="button_type01" type="submit" value="로그인">&nbsp;&nbsp;
+											<input class="button_type01" type="button" value="회원가입" onclick="script:window.location='join'">
+										</td>
+									</tr>
+								</form>
+							</table>
+							</center>
 						</td>
 					</tr>
 					

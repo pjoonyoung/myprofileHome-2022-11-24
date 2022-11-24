@@ -12,3 +12,35 @@ td.content {
 	color: #303030;
 	text-align: center;
 }
+
+span.content_text01 {
+	font-family: malgun;
+	font-size: 20px;
+	font-weight: bold;
+	color: #303030;
+}
+
+input.input_type01 {
+	background-color: #FFFFFF;
+	border: 1px solid #FED39F;
+	width: 200px;
+	padding: 5px;
+	font-family: Arial;
+	font-size: 20px;
+	color: #2A2A2A;
+}
+
+input.button_type01 {
+	background-color: #FE8761;
+	border: 2px solid #FFFFFF;
+	width: 165px;
+	height: 40px;
+	padding: 5px;
+	font-family: malgun;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+
+
