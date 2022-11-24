@@ -7,6 +7,7 @@
 <title>** Joonyoung Profile **</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/title.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css">
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/join.js"></script>
 </head>
 <body>
 <%@ include file="include/header.jsp" %>
@@ -30,7 +31,7 @@
 						<td class="content">
 							<center>
 							<table border="0" cellspacing="0" cellpadding="10">
-								<form action="joinOk" method="post">
+								<form action="joinOk" method="post" name="join_frm">
 									<tr>
 										<td><span class="content_text01">MEMBER ID</span></td>
 										<td><input class="input_type01" type="text" name="mid"></td>
@@ -41,7 +42,7 @@
 									</tr>
 									<tr>
 										<td><span class="content_text01">PW CHECK</span></td>
-										<td><input class="input_type01" type="text" name="mpw_check"></td>
+										<td><input class="input_type01" type="password" name="mpw_check"></td>
 									</tr>
 									<tr>
 										<td><span class="content_text01">NAME</span></td>
@@ -53,7 +54,7 @@
 									</tr>
 									<tr>
 										<td colspan="2">
-											<input class="button_type01" type="submit" value="가입완료">&nbsp;&nbsp;
+											<input class="button_type01" type="button" value="가입완료" onclick="joinCheck()">&nbsp;&nbsp;
 											<input class="button_type01" type="button" value="로그인" onclick="script:window.location='login'">
 										</td>
 									</tr>

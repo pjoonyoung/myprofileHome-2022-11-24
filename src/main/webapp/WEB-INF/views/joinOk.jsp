@@ -28,9 +28,8 @@
 				<table width="80%" border="0" cellspacing="0" cellpadding="10">
 					<tr class="contentbox">
 						<td class="content">
-							안녕하세요 Web Application 백엔드 개발자 박준영입니다.<br>
-							보시고 계신 페이지는 Spring Boot Framework으로 개발되었습니다.<br>
-							웹 어플리케이션 개발 관련하여 궁금하신 점은 jypjoon@gmail.com으로 연락부탁드립니다.
+							<u>${mname }님</u> 회원가입을 축하드립니다!<br>
+							가입하신 아이디는 <u>${mid }</u> 입니다.
 						</td>
 					</tr>
 					
