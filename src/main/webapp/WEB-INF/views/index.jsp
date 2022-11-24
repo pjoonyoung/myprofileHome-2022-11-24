@@ -4,47 +4,55 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>** Joonyoung Profile **</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/title.css">
+
 </head>
 <body>
-	<table width="75%" border="1" cellspacing="0" cellpadding="0">
+<%@ include file="include/header.jsp" %>
+	<center>
+	<table width="75%" border="0" cellspacing="0" cellpadding="20">
 		<tr>
-			<td>
+			<td class="titlebox">
 				<span class="title01">DEVELOPER JOONYOUNG PROFILE</span>
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td class="titlebox">
 				<span class="title02">I'm joonyoung park, a developer who wants a development job. Please call me back</span>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<table width="70%" border="1" cellspacing="0" cellpadding="0">
+				<center>
+				<table width="90%" border="0" cellspacing="0" cellpadding="10">
 					<tr>
-						<td><span class="title03">J</span><span class="title04">AVA</span></td>
-						<td rowspan="6">
-							<img width="700" src="${pageContext.request.contextPath}/resources/img/kongyu.jpg">
+						<td class="skillbox"><span class="title03">J</span><span class="title04">AVA</span></td>
+						<td rowspan="6" class="picbox">
+							<img src="${pageContext.request.contextPath}/resources/img/kongyu.jpg">
 						</td>
 					</tr>
 					<tr>
-						<td><span class="title03">J</span><span class="title04">SP</span></td>
+						<td class="skillbox"><span class="title03">J</span><span class="title04">SP</span></td>
 					</tr>
 					<tr>
-						<td><span class="title03">S</span><span class="title04">PRINGBOOT</span></td>
+						<td class="skillbox"><span class="title03">S</span><span class="title04">PRINGBOOT</span></td>
 					</tr>
 					<tr>
-						<td><span class="title03">J</span><span class="title04">AVASCRIPT</span></td>
+						<td class="skillbox"><span class="title03">J</span><span class="title04">AVASCRIPT</span></td>
 					</tr>
 					<tr>
-						<td><span class="title03">H</span><span class="title04">TML5</span></td>
+						<td class="skillbox"><span class="title03">H</span><span class="title04">TML5</span></td>
 					</tr>
 					<tr>
-						<td><span class="title03">D</span><span class="title04">ATABASE</span></td>
+						<td class="skillbox"><span class="title03">D</span><span class="title04">ATABASE</span></td>
 					</tr>
 				</table>
+				</center>
 			</td>
 		</tr>
 	</table>
+	</center>
+<%@ include file="include/footer.jsp" %>
 </body>
 </html>
