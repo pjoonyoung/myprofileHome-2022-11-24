@@ -39,4 +39,16 @@
 	<select id="questionList" resultType="com.joonyoung.myprofile.dto.QBoardDto">
 		SELECT * FROM profile_board ORDER BY qnum DESC
 	</select>
+	
+	<select id="questionView" resultType="com.joonyoung.myprofile.dto.QBoardDto">
+		SELECT * FROM profile_board WHERE qnum = #{param1}
+	</select>
+	
+	<update id="questionModify">
+		UPDATE profile_board SET qname = #{param2}, qcontent = #{param3}, qemail = #{param4} WHERE qnum = #{param1}
+	</update>
+	
+	<delete id="questionDelete">
+		DELETE FROM profile_board WHERE qnum = #{param1}
+	</delete>
 </mapper>

@@ -193,4 +193,60 @@ public class HomeController {
 		return "questionlist";
 	}
 	
+	@RequestMapping("/questionView")
+	public String questionView(HttpServletRequest request, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String qnum = request.getParameter("qnum");
+		
+		QBoardDto qBoardDtos = dao.questionView(qnum);
+		
+		model.addAttribute("view", qBoardDtos);
+		model.addAttribute("qid", qBoardDtos.getQid());//글쓴 유저의 아이디값 전송
+		
+		return "questionView";
+	}
+	
+	@RequestMapping("/questionModify")
+	public String questionModify(HttpServletRequest request, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String qnum = request.getParameter("qnum");
+		
+		QBoardDto qBoardDtos = dao.questionView(qnum);
+		
+		model.addAttribute("view", qBoardDtos);
+		
+		return "questionModify";
+	}
+	
+	@RequestMapping("/questionModifyOk")
+	public String questionModifyOk(HttpServletRequest request, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String qnum = request.getParameter("qnum");
+		String qname = request.getParameter("qname");
+		String qcontent = request.getParameter("qcontent");
+		String qemail = request.getParameter("qemail");
+		
+		dao.questionModify(qnum, qname, qcontent, qemail);
+		
+		return "redirect:list";
+	}
+	
+	@RequestMapping ("/questionDelete")
+	public String delete(HttpServletRequest request) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String qnum = request.getParameter("qnum");
+		
+		dao.questionDelete(qnum);
+		
+		return "redirect:list";
+	}
+	
 }

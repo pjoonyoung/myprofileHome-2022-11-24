@@ -41,22 +41,26 @@
 									<th class="board_title">NAME</th>
 									<th class="board_title">DATE</th>
 								</tr>
-								<c:forEach items="${qdtos }" val="list">	
+								<c:forEach items="${qdtos }" var="list">	
 								<tr>
 									<td class="board_content01">${list.qnum }</td>
 									<td class="board_content01">${list.qid }</td>
 									<td class="board_content02">
+									<a href="questionView?qnum=${list.qnum }">
 									<c:choose>
-										<c:when test="${fn:length(list.qcontent) > 26 }">
-											<c:out value="${fn:substring(list.qcontent,0,25) }"></c:out>...
+										<c:when test="${fn:length(list.qcontent) > 23 }">
+											<c:out value="${fn:substring(list.qcontent,0,22) }"></c:out>...
 										</c:when>
 										<c:otherwise>
 											<c:out value="${list.qcontent }"></c:out>
 										</c:otherwise>
 									</c:choose>
+									</a>
 									</td>
 									<td class="board_content01">${list.qname }</td>
-									<td class="board_content01">${list.qdate }</td>
+									<td class="board_content01">
+										<c:out value="${fn:substring(list.qdate ,0,10) }"></c:out>
+									</td>
 								</tr>
 								</c:forEach>
 								<tr>
