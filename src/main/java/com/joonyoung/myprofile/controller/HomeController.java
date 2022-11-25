@@ -1,5 +1,7 @@
 package com.joonyoung.myprofile.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.joonyoung.myprofile.dao.IDao;
+import com.joonyoung.myprofile.dto.MemberDto;
 
 @Controller
 public class HomeController {
@@ -79,12 +82,36 @@ public class HomeController {
 		}
 	}
 	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		
+		session.invalidate();
+		
+		return "login";
+	}
+	
 	@RequestMapping("/loginOk")
-	public String loginOk() {
+	public String loginOk(HttpServletRequest request, HttpSession session, Model model) {
 		
 		IDao dao = sqlSession.getMapper(IDao.class);
 		
+		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
 		
+		int checkIdFlag = dao.checkId(mid);
+		//로그인 하려는 아이디가 존재시 1, 로그인 아이디가 존재하지않으면 0 
+		
+		int checkIdPwFlag = dao.checkIdAndPw(mid, mpw);
+		//로그인 하려는 아이디와 비밀번호가 모두 일치하면 1 아니면 0
+		
+		model.addAttribute("checkIdFlag", checkIdFlag);
+		
+		model.addAttribute("checkIdPwFlag", checkIdPwFlag);
+		
+		if(checkIdPwFlag == 1) {//로그인 실행
+			session.setAttribute("memberId", mid);
+			model.addAttribute("mid", mid);
+		}
 		
 		return "loginOk";
 	}

@@ -42,6 +42,19 @@ input.button_type01 {
 	color: #FFFFFF;
 }
 
+input.button_type01:hover {
+	background-color: #9E2801;
+	border: 2px solid #FFFFFF;
+	width: 165px;
+	height: 40px;
+	padding: 5px;
+	font-family: malgun;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
 textarea.textarea_text01 {
 	background-color: #FFFFFF;
 	border: 1px solid #FED39F;
