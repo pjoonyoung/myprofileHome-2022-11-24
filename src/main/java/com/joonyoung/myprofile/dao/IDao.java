@@ -1,8 +1,9 @@
 package com.joonyoung.myprofile.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.joonyoung.myprofile.dto.MemberDto;
+import com.joonyoung.myprofile.dto.QBoardDto;
 
 public interface IDao {
 	//회원관리
@@ -14,4 +15,5 @@ public interface IDao {
 	
 	//질문 게시판
 	public void writeQuestion(String qid, String qname, String qcontent, String qemail);//질문하기 insert
+	public List<QBoardDto> questionList();//질문게시판 리스트 가져오기 select
 }

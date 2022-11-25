@@ -35,4 +35,8 @@
 			VALUES
 			 	(profile_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4})
 	</insert>
+	
+	<select id="questionList" resultType="com.joonyoung.myprofile.dto.QBoardDto">
+		SELECT * FROM profile_board ORDER BY qnum DESC
+	</select>
 </mapper>

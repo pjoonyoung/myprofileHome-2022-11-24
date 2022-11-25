@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +9,7 @@
 <title>** Joonyoung Profile **</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/title.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/content.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/board.css">
 </head>
 <body>
 <%@ include file="include/header.jsp" %>
@@ -30,35 +33,32 @@
 						<td class="content">
 							<br><br>
 							<center>
-							<table width="80%" border="1" cellspacing="0" cellpadding="10">
+							<table width="80%" border="0" cellspacing="0" cellpadding="10">
 								<tr>
-									<th calss="board_title01">NO</th>
-									<th calss="board_title01">ID</th>
-									<th calss="board_title01" width="50%">QUESTION</th>
-									<th calss="board_title01">NAME</th>
-									<th calss="board_title01">DATE</th>
+									<th class="board_title">NO</th>
+									<th class="board_title">ID</th>
+									<th class="board_title" width="50%">QUESTION</th>
+									<th class="board_title">NAME</th>
+									<th class="board_title">DATE</th>
 								</tr>
+								<c:forEach items="${qdtos }" val="list">	
 								<tr>
-									<td class="board_content">10</td>
-									<td class="board_content">tiger</td>
-									<td class="board_content">안녕하세요</td>
-									<td class="board_content">홍길동</td>
-									<td class="board_content">2022-11-25 02:34</td>
+									<td class="board_content01">${list.qnum }</td>
+									<td class="board_content01">${list.qid }</td>
+									<td class="board_content02">
+									<c:choose>
+										<c:when test="${fn:length(list.qcontent) > 26 }">
+											<c:out value="${fn:substring(list.qcontent,0,25) }"></c:out>...
+										</c:when>
+										<c:otherwise>
+											<c:out value="${list.qcontent }"></c:out>
+										</c:otherwise>
+									</c:choose>
+									</td>
+									<td class="board_content01">${list.qname }</td>
+									<td class="board_content01">${list.qdate }</td>
 								</tr>
-								<tr>
-									<td class="board_content">20</td>
-									<td class="board_content">tiger2</td>
-									<td class="board_content">안녕하세요.안녕하세요.안녕하세요.</td>
-									<td class="board_content">홍길동</td>
-									<td class="board_content">2022-11-25 02:34</td>
-								</tr>
-								<tr>
-									<td class="board_content">30</td>
-									<td class="board_content">tiger3</td>
-									<td class="board_content">안녕하세요.안녕하세요.</td>
-									<td class="board_content">홍길동</td>
-									<td class="board_content">2022-11-25 02:34</td>
-								</tr>
+								</c:forEach>
 								<tr>
 									<td colspan="5" align="right">
 										<input type="button" value="질문하기" class="button_type01" onclick="script:wondow.location='question'">

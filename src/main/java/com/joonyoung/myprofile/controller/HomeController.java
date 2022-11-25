@@ -1,6 +1,7 @@
 package com.joonyoung.myprofile.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.joonyoung.myprofile.dao.IDao;
 import com.joonyoung.myprofile.dto.MemberDto;
+import com.joonyoung.myprofile.dto.QBoardDto;
 
 @Controller
 public class HomeController {
@@ -77,7 +79,7 @@ public class HomeController {
 		
 		dao.writeQuestion(qid, qname, qcontent, qemail);
 		
-		return "redirect:questionlist";
+		return "redirect:list";
 	}
 	
 	@RequestMapping("joinOk")
@@ -180,7 +182,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping ("/list")
-	public String list() {
+	public String list(HttpServletRequest request, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		List<QBoardDto> qboardDto = dao.questionList();
+		
+		model.addAttribute("qdtos", qboardDto);
 		
 		return "questionlist";
 	}
