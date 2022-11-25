@@ -5,7 +5,7 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    
 <mapper namespace="com.joonyoung.myprofile.dao.IDao">
-	<!-- 멤버관련 SQL -->
+	<!-- 회원관련 SQL -->
 	<insert id="memberJoin">
 		INSERT INTO 
 				profile_member (mid, mpw, mname, memail) 
@@ -19,5 +19,20 @@
 	<select id="checkIdAndPw" resultType="int">
 		SELECT COUNT(*) FROM profile_member WHERE mid = #{param1} AND mpw = #{param2}
 	</select>
-
+	
+	<select id="getMemberInfo" resultType="com.joonyoung.myprofile.dto.MemberDto">
+		SELECT * FROM profile_member WHERE mid = #{param1}
+	</select>
+	
+	<update id="memberModify">
+		UPDATE profile_member SET mpw = #{param2}, mname = #{param3}, memail = #{param4} WHERE mid = #{param1}
+	</update>
+	
+	<!-- 질문게시판관련 SQL -->
+	<insert id="writeQuestion">
+		INSERT INTO 
+				profile_board (qnum, qid, qname, qcontent, qemail) 
+			VALUES
+			 	(profile_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
 </mapper>

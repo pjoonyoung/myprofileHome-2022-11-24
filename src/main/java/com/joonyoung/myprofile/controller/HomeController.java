@@ -51,8 +51,33 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/question")
-	public String question() {
+	public String question(HttpSession session, Model model) {
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String sessionId = (String) session.getAttribute("memberId");
+		
+		if(sessionId == null) {
+			model.addAttribute("memberId", "GUEST");
+		} else {
+			model.addAttribute("memberId", sessionId);
+		}
+		
 		return "question";
+	}
+	
+	@RequestMapping("/questionOk")
+	public String questionOk(HttpServletRequest request, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String qid = request.getParameter("qid");//글쓴 유저 아이디
+		String qname = request.getParameter("qname");//글쓴 유저 이름
+		String qcontent = request.getParameter("qcontent");//글쓴 내용
+		String qemail = request.getParameter("qemail");//글쓴 유저 이메일
+		
+		dao.writeQuestion(qid, qname, qcontent, qemail);
+		
+		return "redirect:questionlist";
 	}
 	
 	@RequestMapping("joinOk")
@@ -110,9 +135,54 @@ public class HomeController {
 		
 		if(checkIdPwFlag == 1) {//로그인 실행
 			session.setAttribute("memberId", mid);
+			
+			MemberDto memberDto = dao.getMemberInfo(mid);
+			
+			model.addAttribute("memberDto", memberDto);
 			model.addAttribute("mid", mid);
 		}
 		
 		return "loginOk";
 	}
+	
+	@RequestMapping("memberModify")
+	public String memberModify(HttpSession session, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String sessionid = (String) session.getAttribute("memberId");
+		
+		MemberDto memberdto = dao.getMemberInfo(sessionid);
+		
+		model.addAttribute("memberdto", memberdto);
+		
+		return "memberModify";
+	}
+	
+	@RequestMapping("memberModifyOk")
+	public String memberModifyOk(HttpServletRequest request, Model model) {
+		
+		IDao dao = sqlSession.getMapper(IDao.class);
+		
+		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
+		String mname = request.getParameter("mname");
+		String memail = request.getParameter("memail");
+		String mdate = request.getParameter("mdate");
+		
+		dao.memberModify(mid, mpw, mname, memail, mdate);
+		
+		MemberDto memberdto = dao.getMemberInfo(mid);//수정된 회원정보 다시 가져오기 
+		
+		model.addAttribute("memberDto", memberdto);
+		
+		return "memberModifyOk";
+	}
+	
+	@RequestMapping ("/list")
+	public String list() {
+		
+		return "questionlist";
+	}
+	
 }
